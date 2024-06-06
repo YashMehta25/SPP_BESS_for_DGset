@@ -4,46 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battery Savings Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Battery Savings Calculator</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Battery Savings Calculator</h1>
         <form id="inputForm">
-            <label for="eta">Round Trip Efficiency (η):</label>
-            <input type="number" id="eta" step="0.01" required placeholder="e.g., 0.9">
+            <div class="form-group">
+                <label for="eta">Round Trip Efficiency (η):</label>
+                <input type="number" class="form-control" id="eta" step="0.01" required placeholder="e.g., 0.9">
+            </div>
 
-            <label for="F">1/C-rate (= F):</label>
-            <input type="number" id="F" step="0.01" required placeholder="e.g., 0.1">
+            <div class="form-group">
+                <label for="F">1/C-rate (= F):</label>
+                <input type="number" class="form-control" id="F" step="0.01" required placeholder="e.g., 0.1">
+            </div>
 
-            <label for="alpha">Minimum State of Charge (= 1 - α):</label>
-            <input type="number" id="alpha" step="0.01" required placeholder="e.g., 0.2">
+            <div class="form-group">
+                <label for="alpha">Minimum State of Charge (= 1 - α):</label>
+                <input type="number" class="form-control" id="alpha" step="0.01" required placeholder="e.g., 0.2">
+            </div>
 
-            <label for="dy">No. of Active Power Consumption Days (dy):</label>
-            <input type="number" id="dy" required placeholder="e.g., 365">
+            <div class="form-group">
+                <label for="dy">No. of Active Power Consumption Days (dy):</label>
+                <input type="number" class="form-control" id="dy" required placeholder="e.g., 365">
+            </div>
 
-            <label for="K">Initial Rate of the Battery in Rs per kWh (K):</label>
-            <input type="number" id="K" step="0.01" required placeholder="e.g., 300">
+            <div class="form-group">
+                <label for="K">Initial Rate of the Battery in Rs per kWh (K):</label>
+                <input type="number" class="form-control" id="K" step="0.01" required placeholder="e.g., 300">
+            </div>
 
-            <label for="Rg">Grid Electricity Rate in Rs per kWh (Rg):</label>
-            <input type="number" id="Rg" step="0.01" required placeholder="e.g., 0.1">
+            <div class="form-group">
+                <label for="Rg">Grid Electricity Rate in Rs per kWh (Rg):</label>
+                <input type="number" class="form-control" id="Rg" step="0.01" required placeholder="e.g., 0.1">
+            </div>
 
-            <label for="Rd">Rate of Diesel in Rs per kWh (Rd):</label>
-            <input type="number" id="Rd" step="0.01" required placeholder="e.g., 0.15">
+            <div class="form-group">
+                <label for="Rd">Rate of Diesel in Rs per kWh (Rd):</label>
+                <input type="number" class="form-control" id="Rd" step="0.01" required placeholder="e.g., 0.15">
+            </div>
 
-            <label for="Tauo">Average Power Outage Duration (Tauo) in hours:</label>
-            <input type="number" id="Tauo" step="0.01" required placeholder="e.g., 1">
+            <div class="form-group">
+                <label for="Tauo">Average Power Outage Duration (Tauo) in hours:</label>
+                <input type="number" class="form-control" id="Tauo" step="0.01" required placeholder="e.g., 1">
+            </div>
 
-            <label for="No">Average No of Outages per Day (No):</label>
-            <input type="number" id="No" step="0.01" required placeholder="e.g., 2">
+            <div class="form-group">
+                <label for="No">Average No of Outages per Day (No):</label>
+                <input type="number" class="form-control" id="No" step="0.01" required placeholder="e.g., 2">
+            </div>
 
-            <label for="P_L">Constant Load (P_L) in kW:</label>
-            <input type="number" id="P_L" step="0.01" required placeholder="e.g., 5">
+            <div class="form-group">
+                <label for="P_L">Constant Load (P_L) in kW:</label>
+                <input type="number" class="form-control" id="P_L" step="0.01" required placeholder="e.g., 5">
+            </div>
 
-            <button type="submit">Calculate and Plot</button>
+            <div class="form-group">
+                <label for="d">Discount Rate:</label>
+                <input type="number" class="form-control" id="d" step="0.01" required placeholder="e.g., 0.5">
+            </div>
+
+            <div class="form-group">
+                <label for="lt">Lifetime (in yrs):</label>
+                <input type="number" class="form-control" id="lt" step="0.1" required placeholder="e.g., 5">
+            </div>
+
+            <div class="form-group">
+                <label for="OM">Annualised O&M in Rs per kWh:</label>
+                <input type="number" class="form-control" id="OM" step="0.1" required placeholder="e.g., 5">
+            </div>
+
+            <div class="form-group">
+                <label for="i">Inflation Rate:</label>
+                <input type="number" class="form-control" id="i" step="0.01" required placeholder="e.g., 0.5">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Calculate and Plot</button>
         </form>
-        <div id="plot"></div>
+        <div id="plot" class="mt-4"></div>
     </div>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="script.js"></script>
 </body>
