@@ -1,54 +1,87 @@
 /* styles.css */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Changed from center to flex-start */
+    align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 20px; /* Added padding to ensure space around the form */
-    background-color: #f4f4f4;
+    background-color: #f4f4f9;
 }
 
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Adjusted width to be responsive */
-    max-width: 500px; /* Set a max width for better view on large screens */
     text-align: center;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-form {
-    margin-bottom: 20px;
+h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-input {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 10px 20px;
+.dropbtn {
     background-color: #007bff;
-    color: #fff;
+    color: white;
+    padding: 14px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button:hover {
+.dropbtn:hover, .dropbtn:focus {
     background-color: #0056b3;
 }
 
-#plot {
-    margin-top: 20px;
+.arrow {
+    margin-left: 10px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+.dropbtn.show .arrow {
+    transform: rotate(180deg);
+}
+
+
